@@ -1,4 +1,5 @@
 # DeltaX_Assignment
+
 Add all the jars to build path
 Run the DeltaX_LoginPageTest.xml(Present in TestNG-XML folder) to run all the 33 test cases.
 Test Data is available in to TestData folder for all the test cases
