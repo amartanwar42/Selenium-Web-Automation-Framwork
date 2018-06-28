@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="jars/bson-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/commons-codec-1.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/commons-codec-1.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/commons-collections4-4.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/commons-logging-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/curvesapi-1.04.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/extentreports-3.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/extentreports-3.1.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/freemarker-2.3.23.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/gson-2.8.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/httpclient-4.5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/httpcore-4.4.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/httpmime-4.5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/jsoup-1.9.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/junit-4.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/log4j-1.2.17.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/mongodb-driver-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/mongodb-driver-core-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/poi-3.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/poi-examples-3.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/poi-excelant-3.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/poi-ooxml-3.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/poi-scratchpad-3.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/selenium-server-standalone-3.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/sqljdbc42.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
