@@ -10,7 +10,7 @@ import org.testng.Reporter;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public abstract class BasePage implements AutoConst 
+public abstract class BasePage implements IAutoConst
 {
 	public  WebDriver driver;
 	public  ExtentTest test;

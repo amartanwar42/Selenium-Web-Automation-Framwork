@@ -1,8 +1,8 @@
 package generic;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.nio.file.Paths;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,16 +14,16 @@ import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import pom.mgc.LoginPage;
 
 
-public abstract class BaseTest implements AutoConst 
+public abstract class BaseTest implements IAutoConst
 {
 	public static WebDriver driver;
 	public static ExtentHtmlReporter htmlReporter;
@@ -36,18 +36,18 @@ public abstract class BaseTest implements AutoConst
 	@BeforeSuite
 	public void settingUpReport()
 	{
-		htmlReporter= new ExtentHtmlReporter("./Reports/DeltaX_AssignmentReport_"+SystemDate.currentDate()+".html");
+		htmlReporter= new ExtentHtmlReporter("Reports/MGC_TestReport_"+SystemDate.currentDate()+".html");
 		reports= new ExtentReports();
 		reports.attachReporter(htmlReporter);
 		
-		reports.setSystemInfo("Opereating System", "Windows10");
+		reports.setSystemInfo("Opereating System", "mac");
 		reports.setSystemInfo("Environment", "QA");
-		reports.setSystemInfo("User Name", "Amar");
+		reports.setSystemInfo("User Name", "Sumit");
 		reports.setSystemInfo("Browser", "Chrome");
-		reports.setSystemInfo("TestURL", "http://adjiva.com/qa-test/");
+		reports.setSystemInfo("TestURL", "screenshotpathhttps://mgcuat.com/mgc-direct-web/userin.do/log");
 		
-		htmlReporter.config().setDocumentTitle("DeltaX_AssignmentReport");
-		htmlReporter.config().setReportName("DeltaX_AssignmentReport");
+		htmlReporter.config().setDocumentTitle("MGC");
+		htmlReporter.config().setReportName("MGC_TestReport");
 		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
 		htmlReporter.config().setChartVisibilityOnOpen(false);
 		htmlReporter.config().setTheme(Theme.DARK);
@@ -58,7 +58,8 @@ public abstract class BaseTest implements AutoConst
 	// Open  the application
 	@BeforeMethod
 	public void openApplication(Method method) throws InterruptedException
-	{	
+	{
+        test=reports.createTest(method.getName());
 		//Open the browser
 		System.setProperty(CHROME_KEY,CHROME_VALUE);
 		
@@ -69,8 +70,11 @@ public abstract class BaseTest implements AutoConst
 		driver.manage().window().maximize();
 
 		//Opening the application
-		driver.get("http://adjiva.com/qa-test/");
-	
+		driver.get("https://mgcuat.com/mgc-direct-web/user/login.do");
+        LoginPage loginPage=new LoginPage(driver,test);
+        loginPage.enterEmaiilId("sumitk+2@boston-technology.com");
+        loginPage.enterPwd("loveuPap@9");
+        loginPage.clickOnLoginButton();
 	}
 	
 	
@@ -83,10 +87,18 @@ public abstract class BaseTest implements AutoConst
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
 			String name= result.getName();
-			String screenshotpath = ScreenShot.takeScreenshot(driver, SNAP_PATH+name);
+			String screenshotpath = ScreenShot.takeScreenshot(driver, SCREEN_SHOTS+name);
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" failed becuase of below issue", ExtentColor.RED));
 			test.fail(result.getThrowable());
-			test.fail("SnapShot Below:", MediaEntityBuilder.createScreenCaptureFromPath(Paths.get("").toAbsolutePath().toString() + screenshotpath).build());
+
+            try {
+                File file = new File(screenshotpath);
+                String absolutePath = file.getAbsolutePath();
+                System.out.println(absolutePath);
+                test.addScreenCaptureFromPath(absolutePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 			driver.quit();
 
 		}
