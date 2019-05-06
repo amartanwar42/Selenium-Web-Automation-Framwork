@@ -5,7 +5,7 @@ import java.util.Map;
 import org.testng.annotations.Test;
 
 import generic.BaseTest;
-import pom.DeltaXLoginPage;
+import pom.cms.DeltaXLoginPage;
 import testDataProvider_Repository.LoginPageData;
 
 public class DeltaX_LoginPageTest extends BaseTest 

@@ -19,7 +19,7 @@ public class DataProviderGenerator
 		
 		for(int i=2;i<row;i++)
 		{
-			Map<String, String> datamap1  = new HashMap<>();
+			Map<String, String> datamap1  = new HashMap<String, String>();
 			
 			for(int j=0;j<cell;j++)
 			{
@@ -47,7 +47,7 @@ public class DataProviderGenerator
                                                                                                                     
 		for(int i=2;i<row;i++)
 		{
-			Map<Object, Object> datamap = new HashMap<>();  
+			Map<Object, Object> datamap = new HashMap<Object, Object>();
 			for(int j=0;j<numberofSheets;j++)
 			{	
 				String sheetName=Excel.getSheetName(path, j);

@@ -18,6 +18,7 @@ public  class ScreenShot
 		Date d=new Date();
 		String date=d.toString().replace(":", "-");
 		String dst=folder+date+".png";
+		System.out.println(dst);
 		File srcFile=t.getScreenshotAs(OutputType.FILE);
 		File dstfile= new File(dst);
 		try
